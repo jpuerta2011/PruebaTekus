@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleInjector.Integration.Web.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,12 @@ namespace Tekus.Web.Client
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            // Configure the Dependency Injection infrastructure with SimpleInjector
+            // Create the container
+            var container = Bootstrapper.Build();
+
+            DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
         }
     }
 }
