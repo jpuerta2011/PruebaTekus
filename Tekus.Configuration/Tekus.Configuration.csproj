@@ -65,6 +65,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mappings\ClientMap.cs" />
+    <Compile Include="Mappings\ClientServiceCountryMap.cs" />
+    <Compile Include="Mappings\ClientServiceMap.cs" />
+    <Compile Include="Mappings\CountryMap.cs" />
+    <Compile Include="Mappings\ServiceMap.cs" />
     <Compile Include="Mappings\VersionMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitOfWork.cs" />

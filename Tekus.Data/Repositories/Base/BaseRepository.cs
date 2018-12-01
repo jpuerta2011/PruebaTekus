@@ -215,18 +215,6 @@ namespace Tekus.Data.Repositories.Base
             if (this.Session.Transaction != null && this.Session.Transaction.IsActive)
             {
                 var query = this.Session.QueryOver<T>();
-
-                // TODO: Code IActivable
-                /*if (typeof(T).GetInterface(typeof(IActivable).Name) != null)
-                {
-                    query.Where(x => ((IActivable)x).IsActive);
-                }
-                // TODO: Code ICacheable
-                if (typeof(T).GetInterface(typeof(ICacheable).Name) != null)
-                {
-                    query.Cacheable();
-                }
-                */
                 results = await query.ListAsync();
             }
             else
@@ -234,19 +222,6 @@ namespace Tekus.Data.Repositories.Base
                 using (var transaction = this.Session.BeginTransaction())
                 {
                     var query = this.Session.QueryOver<T>();
-
-                    // TODO: Code IActivable
-                    /*if (typeof(T).GetInterface(typeof(IActivable).Name) != null)
-                    {
-                        query.Where(x => ((IActivable)x).IsActive);
-                    }
-                    // TODO: Code ICacheable
-                    if (typeof(T).GetInterface(typeof(ICacheable).Name) != null)
-                    {
-                        query.Cacheable();
-                    }
-                    */
-
                     results = await query.ListAsync();
                     await transaction.CommitAsync();
                 }
@@ -262,12 +237,6 @@ namespace Tekus.Data.Repositories.Base
         protected virtual IQueryOver<T, T> GetQueryOver()
         {
             var query = this.Session.QueryOver<T>();
-
-            // TODO: Code IActivable
-            /*if (typeof(T).GetInterface(typeof(IActivable).Name) != null)
-            {
-                query.Where(x => ((IActivable)x).IsActive);
-            }*/
 
             return query;
         }

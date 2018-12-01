@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tekus.Data.Entities.Base
 {
-    public class TypeIdentifiable<T>
+    public abstract class TypeIdentifiable<T>
     {
         public TypeIdentifiable()
         {
