@@ -17,6 +17,8 @@ namespace Tekus.Domain.Services
         Task<List<ClientModel>> GetEnabledClients(bool withServices, bool withServicesCountries);
         Task<ResponseModel<long>> Save(ClientModel clientModel);
         Task<ResponseModel<bool>> SetEnabledState(long clientId);
+        Task<ClientModel> GetClient(long clientId);
+        Task<ClientModel> GetClientWithServices(long clientId);
     }
     public class ClientService : IClientService
     {
@@ -40,6 +42,7 @@ namespace Tekus.Domain.Services
                 using (_unitOfWork)
                 {
                     await _clientRepository.Save(client);
+                    _unitOfWork.Commit();
                 }
 
                 response.Data = client.IsEnabled;
@@ -81,7 +84,7 @@ namespace Tekus.Domain.Services
             {
                 // It's check if the client Name already exist into database 
                 // If client exist then it's sent a fault response                
-                var nameIsValid = await _clientRepository.ValidateIfClientNameIsUnique(clientModel.Name);
+                var nameIsValid = await _clientRepository.ValidateIfClientNameIsUnique(clientModel.Name, clientModel.Id);
                 if (!nameIsValid)
                 {
                     response.Success = false;
@@ -91,7 +94,7 @@ namespace Tekus.Domain.Services
 
                 // It's check if the client NIT already exist into database 
                 // If client exist then it's sent a fault response       
-                var nitIsvalid = await _clientRepository.ValidateIfClientNitIsUnique(clientModel.NIT);
+                var nitIsvalid = await _clientRepository.ValidateIfClientNitIsUnique(clientModel.NIT, clientModel.Id);
                 if (!nitIsvalid)
                 {
                     response.Success = false;
@@ -101,11 +104,17 @@ namespace Tekus.Domain.Services
 
                 // It's sent the client model info to the client entity object
                 var client = new Client();
+                if (clientModel.Id > 0)
+                {
+                    client = await _clientRepository.Load(clientModel.Id);
+                }
+
                 clientModel.FillUp(client);
 
                 using (_unitOfWork)
                 {
                     await _clientRepository.Save(client);
+                    _unitOfWork.Commit();
                 }
 
                 response.Success = true;
@@ -127,6 +136,18 @@ namespace Tekus.Domain.Services
             }
 
             return response;
+        }
+
+        public async Task<ClientModel> GetClient(long clientId)
+        {
+            var client = await _clientRepository.GetBy(clientId);
+            return ClientModel.MakeOne(client, false, false);
+        }
+
+        public async Task<ClientModel> GetClientWithServices(long clientId)
+        {
+            var client = await _clientRepository.Load(clientId);
+            return ClientModel.MakeOne(client, true, false);
         }
     }
 }

@@ -11,8 +11,8 @@ namespace Tekus.Data.Repositories.Data
     public interface ICountryRepository : Base.IBaseRepository<int, Country>
     {
     }
-    public class CountryRepositorys : Base.BaseRepository<int, Country>, ICountryRepository
+    public class CountryRepository : Base.BaseRepository<int, Country>, ICountryRepository
     {
-        public CountryRepositorys(ISession session) : base(session) { }
+        public CountryRepository(ISession session) : base(session) { }
     }
 }

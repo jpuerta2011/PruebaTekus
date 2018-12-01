@@ -58,6 +58,8 @@ namespace Tekus.Domain.Services
                     }
 
                     _clientServiceRepository.Remove(clientService);
+
+                    _unitOfWork.Commit();
                 }
 
                 response.Success = true;
@@ -138,6 +140,7 @@ namespace Tekus.Domain.Services
                         clientServiceCountry.ClientService = clientService;
                         await _clientServiceCountryRepository.Save(clientServiceCountry);
                     }
+                    _unitOfWork.Commit();
                 }
 
                 response.Success = true;

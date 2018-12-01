@@ -59,11 +59,16 @@ namespace Tekus.Domain.Services
 
                 // It's sent the service model info to the service entity object
                 var service = new Service();
+                if (serviceModel.Id > 0)
+                {
+                    service = await _serviceRepository.Load(serviceModel.Id);
+                }
                 serviceModel.FillUp(service);
 
                 using (_unitOfWork)
                 {
                     await _serviceRepository.Save(service);
+                    _unitOfWork.Commit();
                 }
 
                 response.Success = true;
@@ -98,6 +103,7 @@ namespace Tekus.Domain.Services
                 using (_unitOfWork)
                 {
                     await _serviceRepository.Save(service);
+                    _unitOfWork.Commit();
                 }
 
                 response.Data = service.IsEnabled;

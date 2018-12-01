@@ -15,6 +15,7 @@ namespace Tekus.Configuration.Mappings
             Id(x => x.Id, "ClientId").GeneratedBy.Identity();
             Map(x => x.Name, "ClientName");
             Map(x => x.NIT, "ClientNIT");
+            Map(x => x.Email, "ClientEmail");
             Map(x => x.IsEnabled, "IsEnabled");
             HasMany(x => x.Services).KeyColumn("ClientId").LazyLoad();
         }

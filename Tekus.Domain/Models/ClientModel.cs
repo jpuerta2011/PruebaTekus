@@ -17,6 +17,11 @@ namespace Tekus.Domain.Models
 
         public static ClientModel MakeOne(Client entity, bool withServices, bool withServicesCountries)
         {
+            if (entity == null)
+            {
+                return new ClientModel();
+            }
+
             var model = new ClientModel
             {
                 Id = entity.Id,
