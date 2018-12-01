@@ -1,0 +1,9 @@
+packages/*
+.vs/*
+Tekus.Common/obj/*
+Tekus.Configuration/obj/*
+Tekus.Data/obj/*
+Tekus.Domain/obj/*
+Tekus.Web.Client.Tests/obj/*
+Tekus.Web.Client/obj/*
+Tekus.Web.Client/bin/*
