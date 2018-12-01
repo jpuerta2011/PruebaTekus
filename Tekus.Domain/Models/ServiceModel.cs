@@ -12,7 +12,7 @@ namespace Tekus.Domain.Models
         public string Name { get; set; }
         public bool IsEnable { get; set; }
 
-        public static ServiceModel MakeOne(Service entity, bool withCountries)
+        public static ServiceModel MakeOne(Data.Entities.Service entity)
         {
             var model = new ServiceModel
             {
@@ -20,12 +20,19 @@ namespace Tekus.Domain.Models
                 IsEnable = entity.IsEnabled
             };
 
-            if (withCountries)
-            {
-                // TODO: I must add the code to retrive the services countries to the countries for the service
-            }
-
             return model;
+        }
+
+        public static List<ServiceModel> MakeMany(List<Data.Entities.Service> sourceList)
+        {
+            return sourceList.Select(x => MakeOne(x)).ToList();
+        }
+
+        public void FillUp(Data.Entities.Service entity)
+        {
+            entity.Id = Id;
+            entity.Name = Name;
+            entity.IsEnabled = IsEnable;
         }
     }
 }

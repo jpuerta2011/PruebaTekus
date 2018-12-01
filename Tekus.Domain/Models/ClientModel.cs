@@ -13,7 +13,7 @@ namespace Tekus.Domain.Models
         public string NIT { get; set; }
         public string Email { get; set; }
         public bool IsEnable { get; set; }
-        //TODO: I need add the model for the services and countries services
+        public List<ClientServiceModel> ClientServices { get; set; }
 
         public static ClientModel MakeOne(Client entity, bool withServices, bool withServicesCountries)
         {
@@ -25,9 +25,11 @@ namespace Tekus.Domain.Models
                 Email = entity.Email,
                 IsEnable = entity.IsEnabled
             };
-
-            // TODO: I must add the processo to convert all services to the services model for the client model
-            //
+            
+            if (withServices)
+            {
+                model.ClientServices = ClientServiceModel.MakeMany(entity.Services.ToList(), withServicesCountries);
+            }
 
             return model;
         }

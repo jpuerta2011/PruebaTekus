@@ -9,3 +9,6 @@ Tekus.Web.Client/obj/*
 Tekus.Web.Client/bin/*
 Tekus.Web.API/obj/*
 Tekus.Web.API/bin/*
+Tekus.Data/bin/*
+Tekus.Configuration/bin/*
+Tekus.Common/bin/*
