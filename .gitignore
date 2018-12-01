@@ -7,3 +7,5 @@ Tekus.Domain/obj/*
 Tekus.Web.Client.Tests/obj/*
 Tekus.Web.Client/obj/*
 Tekus.Web.Client/bin/*
+Tekus.Web.API/obj/*
+Tekus.Web.API/bin/*
