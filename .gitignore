@@ -13,3 +13,7 @@ Tekus.Data/bin/*
 Tekus.Configuration/bin/*
 Tekus.Common/bin/*
 Tekus.Domain/bin/*
+Tekus.Web.Client/packages/*
+Tekus.Web.Client/Tekus.Web.Client/bin/*
+Tekus.Web.Client/Tekus.Web.Client/obj/*
+Tekus.Web.Client/.vs/*
