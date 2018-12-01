@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -150,6 +151,10 @@
     <ProjectReference Include="..\Tekus.Common\Tekus.Common.csproj">
       <Project>{8588360d-1986-475e-88e3-91db3f79a2f0}</Project>
       <Name>Tekus.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tekus.Configuration\Tekus.Configuration.csproj">
+      <Project>{3a1fff95-a0e6-403f-807e-828a05489b35}</Project>
+      <Name>Tekus.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\Tekus.Data\Tekus.Data.csproj">
       <Project>{e6b4e054-df28-4316-bf60-ef898591e868}</Project>
