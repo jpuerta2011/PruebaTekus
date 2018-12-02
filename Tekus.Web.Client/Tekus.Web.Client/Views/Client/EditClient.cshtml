@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Editar cliente";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@Html.Partial("_ClientPartial")
+
+@section scripts{
+    @Scripts.Render("~/bundles/datatables")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            clientViews.clientID = "@Model";
+            clientViews.endpoint = "@ViewBag.endpoint"
+            $("#btnGuardar").on("click", function () {
+                clientViews.saveClient();
+                return false;
+            });
+
+            $("#formSaveClient").submit(function (e) {
+                e.preventDefault();
+            });
+
+            clientViews.initEdit();
+        })
+    </script>
+}

@@ -23,7 +23,7 @@ namespace Tekus.Web.API.Controllers
             var clients = await Services.ClientService.GetClients(false, false);
             return clients.Select(x => new ClientResponse
             {
-                ClientId = x.Id,
+                Id = x.Id,
                 Email = x.Email,
                 IsEnabled = x.IsEnable,
                 Name = x.Name,
@@ -44,7 +44,7 @@ namespace Tekus.Web.API.Controllers
             {
                 return Ok(new ClientResponse
                 {
-                    ClientId = client.Id,
+                    Id = client.Id,
                     Email = client.Email,
                     IsEnabled = client.IsEnable,
                     Name = client.Name,
@@ -64,19 +64,6 @@ namespace Tekus.Web.API.Controllers
                 Name = client.Name,
                 NIT = client.NIT
             });
-
-            return Ok(new
-            {
-                response.Success,
-                response.Data,
-                Message = response.Messages.Count > 0 ? response.Messages[0] : string.Empty
-            });
-        }
-
-        // PUT: api/Client/5
-        public async Task<IHttpActionResult> Put(int id)
-        {
-            var response = await Services.ClientService.SetEnabledState(id);
 
             return Ok(new
             {
