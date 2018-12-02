@@ -1,27 +1,27 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Editar cliente";
+    ViewBag.Title = "Editar servicio";
 }
 
 <h2>@ViewBag.Title</h2>
 
-@Html.Partial("_ClientPartial")
+@Html.Partial("_ServicePartial")
 
 @section scripts{
     <script type="text/javascript">
         $(document).ready(function () {
-            clientViews.clientID = "@Model";
-            clientViews.endpoint = "@ViewBag.endpoint"
+            serviceViews.serviceID = "@Model";
+            serviceViews.endpoint = "@ViewBag.endpoint"
             $("#btnGuardar").on("click", function () {
-                clientViews.saveClient();
+                serviceViews.saveService();
                 return false;
             });
 
-            $("#formSaveClient").submit(function (e) {
+            $("#formSaveService").submit(function (e) {
                 e.preventDefault();
             });
 
-            clientViews.initEdit();
+            serviceViews.initEdit();
         })
     </script>
 }

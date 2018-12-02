@@ -10,7 +10,9 @@ namespace Tekus.Domain.Models
     public class ClientServiceModel : Base.TypeIdentifiableModel<long>
     {
         public long ClientId { get; set; }
+        public string ClientName { get; set; }
         public long ServiceId { get; set; }
+        public string ServiceName { get; set; }
         public double HourValue { get; set; }
         public List<CountryModel> Countries;
 
@@ -20,7 +22,9 @@ namespace Tekus.Domain.Models
             {
                 Id = entity.Id,
                 ServiceId = entity.Service.Id,
+                ServiceName = entity.Service.Name,
                 ClientId = entity.Client.Id,
+                ClientName = entity.Client.Name,
                 HourValue = entity.HourValue
             };
 

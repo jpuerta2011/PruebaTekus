@@ -32,7 +32,7 @@ namespace Tekus.Web.API.Controllers
         }
 
         // GET: api/Client/5
-        public async Task<IHttpActionResult> Get(int id)
+        public async Task<IHttpActionResult> Get(long id)
         {
             var client = await Services.ClientService.GetClient(id);
 

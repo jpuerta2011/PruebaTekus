@@ -14,6 +14,11 @@ namespace Tekus.Domain.Models
 
         public static ServiceModel MakeOne(Data.Entities.Service entity)
         {
+            if (entity == null)
+            {
+                return new ServiceModel();
+            }
+
             var model = new ServiceModel
             {
                 Name = entity.Name,

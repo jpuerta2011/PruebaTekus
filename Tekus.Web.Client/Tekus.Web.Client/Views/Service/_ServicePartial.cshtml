@@ -1,0 +1,16 @@
+﻿@using (Html.BeginForm("", "", FormMethod.Post,
+    new { @class = "form-horizontal", role = "form", id = "formSaveService" }))
+{
+
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+                @Html.Label("Nombre", new { @for = "Name" })
+                @Html.TextBox("Name", string.Empty, new { @class = "form-control", maxlength = "200", required = "required" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <button id="btnGuardar" class="btn btn-success">Guardar</button>
+    </div>
+}

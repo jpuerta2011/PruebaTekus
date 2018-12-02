@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Servicios</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            @Html.ActionLink("Agregar servicio", "AddService", "Service", new { }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_ServiceListPartial")
+
+@section scripts{
+    @Scripts.Render("~/bundles/datatables")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            serviceViews.initServiceList("@ViewBag.endpoint");
+        })
+    </script>
+}

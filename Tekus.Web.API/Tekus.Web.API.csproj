@@ -122,6 +122,9 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\ClientServiceController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -129,6 +132,8 @@
     <Compile Include="Models\ClientResponse.cs" />
     <Compile Include="Models\ClientServiceResponse.cs" />
     <Compile Include="Models\CountryResponse.cs" />
+    <Compile Include="Models\ServiceRequest.cs" />
+    <Compile Include="Models\ServiceResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
