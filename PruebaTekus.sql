@@ -1,0 +1,1056 @@
+/*
+Navicat SQL Server Data Transfer
+
+Source Server         : SQLServer_local
+Source Server Version : 130000
+Source Host           : DESKTOP-L86TA73\SQLEXPRESS:1433
+Source Database       : PruebaTekus
+Source Schema         : dbo
+
+Target Server Type    : SQL Server
+Target Server Version : 130000
+File Encoding         : 65001
+
+Date: 2018-12-02 21:53:56
+*/
+
+
+-- ----------------------------
+-- Table structure for Client
+-- ----------------------------
+DROP TABLE [dbo].[Client]
+GO
+CREATE TABLE [dbo].[Client] (
+[ClientId] bigint NOT NULL IDENTITY(1,1) ,
+[ClientName] varchar(200) NOT NULL ,
+[ClientNIT] varchar(20) NOT NULL ,
+[ClientEmail] varchar(100) NOT NULL ,
+[IsEnabled] bit NOT NULL DEFAULT ((1)) 
+)
+
+
+GO
+DBCC CHECKIDENT(N'[dbo].[Client]', RESEED, 8)
+GO
+
+-- ----------------------------
+-- Records of Client
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[Client] ON
+GO
+INSERT INTO [dbo].[Client] ([ClientId], [ClientName], [ClientNIT], [ClientEmail], [IsEnabled]) VALUES (N'5', N'Haceb', N'8025456-5', N'haceb@gmail.com', N'0')
+GO
+GO
+INSERT INTO [dbo].[Client] ([ClientId], [ClientName], [ClientNIT], [ClientEmail], [IsEnabled]) VALUES (N'6', N'Vasco security group', N'9856426-2', N'vasco@gmail.com', N'0')
+GO
+GO
+INSERT INTO [dbo].[Client] ([ClientId], [ClientName], [ClientNIT], [ClientEmail], [IsEnabled]) VALUES (N'7', N'Importaciones S.A.S', N'78456932-4', N'importaciones@gmail.com', N'0')
+GO
+GO
+INSERT INTO [dbo].[Client] ([ClientId], [ClientName], [ClientNIT], [ClientEmail], [IsEnabled]) VALUES (N'8', N'Software Ing', N'78954025-1', N'software@gmail.com', N'0')
+GO
+GO
+SET IDENTITY_INSERT [dbo].[Client] OFF
+GO
+
+-- ----------------------------
+-- Table structure for ClientService
+-- ----------------------------
+DROP TABLE [dbo].[ClientService]
+GO
+CREATE TABLE [dbo].[ClientService] (
+[ClientServiceId] bigint NOT NULL IDENTITY(1,1) ,
+[ClientId] bigint NOT NULL ,
+[ServiceId] bigint NOT NULL ,
+[HourValue] decimal(19,4) NOT NULL 
+)
+
+
+GO
+
+-- ----------------------------
+-- Records of ClientService
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[ClientService] ON
+GO
+SET IDENTITY_INSERT [dbo].[ClientService] OFF
+GO
+
+-- ----------------------------
+-- Table structure for ClientServiceCountry
+-- ----------------------------
+DROP TABLE [dbo].[ClientServiceCountry]
+GO
+CREATE TABLE [dbo].[ClientServiceCountry] (
+[ClientServiceCountryId] int NOT NULL IDENTITY(1,1) ,
+[ClientServiceId] bigint NOT NULL ,
+[CountryId] int NULL 
+)
+
+
+GO
+
+-- ----------------------------
+-- Records of ClientServiceCountry
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[ClientServiceCountry] ON
+GO
+SET IDENTITY_INSERT [dbo].[ClientServiceCountry] OFF
+GO
+
+-- ----------------------------
+-- Table structure for Country
+-- ----------------------------
+DROP TABLE [dbo].[Country]
+GO
+CREATE TABLE [dbo].[Country] (
+[CountryId] int NOT NULL IDENTITY(1,1) ,
+[CountryName] varchar(128) NOT NULL 
+)
+
+
+GO
+DBCC CHECKIDENT(N'[dbo].[Country]', RESEED, 249)
+GO
+
+-- ----------------------------
+-- Records of Country
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[Country] ON
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'1', N'Afghanistan')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'2', N'Åland Islands')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'3', N'Albania')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'4', N'Algeria')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'5', N'American Samoa')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'6', N'Andorra')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'7', N'Angola')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'8', N'Anguilla')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'9', N'Antarctica')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'10', N'Antigua and Barbuda')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'11', N'Argentina')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'12', N'Armenia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'13', N'Aruba')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'14', N'Australia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'15', N'Austria')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'16', N'Azerbaijan')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'17', N'Bahamas')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'18', N'Bahrain')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'19', N'Bangladesh')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'20', N'Barbados')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'21', N'Belarus')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'22', N'Belgium')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'23', N'Belize')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'24', N'Benin')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'25', N'Bermuda')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'26', N'Bhutan')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'27', N'Bolivia (Plurinational State of)')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'28', N'Bonaire, Sint Eustatius and Saba')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'29', N'Bosnia and Herzegovina')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'30', N'Botswana')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'31', N'Bouvet Island')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'32', N'Brazil')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'33', N'British Indian Ocean Territory')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'34', N'Brunei Darussalam')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'35', N'Bulgaria')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'36', N'Burkina Faso')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'37', N'Burundi')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'38', N'Cabo Verde')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'39', N'Cambodia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'40', N'Cameroon')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'41', N'Canada')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'42', N'Cayman Islands')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'43', N'Central African Republic')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'44', N'Chad')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'45', N'Chile')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'46', N'China')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'47', N'Christmas Island')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'48', N'Cocos (Keeling) Islands')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'49', N'Colombia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'50', N'Comoros')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'51', N'Congo')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'52', N'Congo (Democratic Republic of the)')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'53', N'Cook Islands')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'54', N'Costa Rica')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'55', N'Côte d''Ivoire')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'56', N'Croatia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'57', N'Cuba')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'58', N'Curaçao')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'59', N'Cyprus')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'60', N'Czechia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'61', N'Denmark')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'62', N'Djibouti')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'63', N'Dominica')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'64', N'Dominican Republic')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'65', N'Ecuador')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'66', N'Egypt')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'67', N'El Salvador')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'68', N'Equatorial Guinea')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'69', N'Eritrea')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'70', N'Estonia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'71', N'Ethiopia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'72', N'Falkland Islands (Malvinas)')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'73', N'Faroe Islands')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'74', N'Fiji')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'75', N'Finland')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'76', N'France')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'77', N'French Guiana')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'78', N'French Polynesia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'79', N'French Southern Territories')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'80', N'Gabon')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'81', N'Gambia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'82', N'Georgia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'83', N'Germany')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'84', N'Ghana')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'85', N'Gibraltar')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'86', N'Greece')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'87', N'Greenland')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'88', N'Grenada')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'89', N'Guadeloupe')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'90', N'Guam')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'91', N'Guatemala')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'92', N'Guernsey')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'93', N'Guinea')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'94', N'Guinea-Bissau')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'95', N'Guyana')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'96', N'Haiti')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'97', N'Heard Island and McDonald Islands')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'98', N'Holy See')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'99', N'Honduras')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'100', N'Hong Kong')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'101', N'Hungary')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'102', N'Iceland')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'103', N'India')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'104', N'Indonesia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'105', N'Iran (Islamic Republic of)')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'106', N'Iraq')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'107', N'Ireland')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'108', N'Isle of Man')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'109', N'Israel')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'110', N'Italy')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'111', N'Jamaica')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'112', N'Japan')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'113', N'Jersey')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'114', N'Jordan')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'115', N'Kazakhstan')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'116', N'Kenya')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'117', N'Kiribati')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'118', N'Korea (Democratic People''s Republic of)')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'119', N'Korea (Republic of)')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'120', N'Kuwait')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'121', N'Kyrgyzstan')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'122', N'Lao People''s Democratic Republic')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'123', N'Latvia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'124', N'Lebanon')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'125', N'Lesotho')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'126', N'Liberia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'127', N'Libya')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'128', N'Liechtenstein')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'129', N'Lithuania')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'130', N'Luxembourg')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'131', N'Macao')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'132', N'Macedonia (the former Yugoslav Republic of)')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'133', N'Madagascar')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'134', N'Malawi')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'135', N'Malaysia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'136', N'Maldives')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'137', N'Mali')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'138', N'Malta')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'139', N'Marshall Islands')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'140', N'Martinique')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'141', N'Mauritania')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'142', N'Mauritius')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'143', N'Mayotte')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'144', N'Mexico')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'145', N'Micronesia (Federated States of)')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'146', N'Moldova (Republic of)')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'147', N'Monaco')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'148', N'Mongolia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'149', N'Montenegro')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'150', N'Montserrat')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'151', N'Morocco')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'152', N'Mozambique')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'153', N'Myanmar')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'154', N'Namibia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'155', N'Nauru')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'156', N'Nepal')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'157', N'Netherlands')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'158', N'New Caledonia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'159', N'New Zealand')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'160', N'Nicaragua')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'161', N'Niger')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'162', N'Nigeria')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'163', N'Niue')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'164', N'Norfolk Island')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'165', N'Northern Mariana Islands')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'166', N'Norway')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'167', N'Oman')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'168', N'Pakistan')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'169', N'Palau')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'170', N'Palestine, State of')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'171', N'Panama')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'172', N'Papua New Guinea')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'173', N'Paraguay')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'174', N'Peru')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'175', N'Philippines')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'176', N'Pitcairn')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'177', N'Poland')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'178', N'Portugal')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'179', N'Puerto Rico')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'180', N'Qatar')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'181', N'Réunion')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'182', N'Romania')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'183', N'Russian Federation')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'184', N'Rwanda')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'185', N'Saint Barthélemy')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'186', N'Saint Helena, Ascension and Tristan da Cunha')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'187', N'Saint Kitts and Nevis')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'188', N'Saint Lucia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'189', N'Saint Martin (French part)')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'190', N'Saint Pierre and Miquelon')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'191', N'Saint Vincent and the Grenadines')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'192', N'Samoa')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'193', N'San Marino')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'194', N'Sao Tome and Principe')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'195', N'Saudi Arabia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'196', N'Senegal')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'197', N'Serbia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'198', N'Seychelles')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'199', N'Sierra Leone')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'200', N'Singapore')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'201', N'Sint Maarten (Dutch part)')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'202', N'Slovakia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'203', N'Slovenia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'204', N'Solomon Islands')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'205', N'Somalia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'206', N'South Africa')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'207', N'South Georgia and the South Sandwich Islands')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'208', N'South Sudan')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'209', N'Spain')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'210', N'Sri Lanka')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'211', N'Sudan')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'212', N'Suriname')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'213', N'Svalbard and Jan Mayen')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'214', N'Swaziland')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'215', N'Sweden')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'216', N'Switzerland')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'217', N'Syrian Arab Republic')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'218', N'Taiwan, Province of China[a]')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'219', N'Tajikistan')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'220', N'Tanzania, United Republic of')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'221', N'Thailand')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'222', N'Timor-Leste')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'223', N'Togo')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'224', N'Tokelau')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'225', N'Tonga')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'226', N'Trinidad and Tobago')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'227', N'Tunisia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'228', N'Turkey')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'229', N'Turkmenistan')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'230', N'Turks and Caicos Islands')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'231', N'Tuvalu')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'232', N'Uganda')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'233', N'Ukraine')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'234', N'United Arab Emirates')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'235', N'United Kingdom of Great Britain and Northern Ireland')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'236', N'United States of America')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'237', N'United States Minor Outlying Islands')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'238', N'Uruguay')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'239', N'Uzbekistan')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'240', N'Vanuatu')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'241', N'Venezuela (Bolivarian Republic of)')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'242', N'Viet Nam')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'243', N'Virgin Islands (British)')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'244', N'Virgin Islands (U.S.)')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'245', N'Wallis and Futuna')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'246', N'Western Sahara')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'247', N'Yemen')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'248', N'Zambia')
+GO
+GO
+INSERT INTO [dbo].[Country] ([CountryId], [CountryName]) VALUES (N'249', N'Zimbabwe')
+GO
+GO
+SET IDENTITY_INSERT [dbo].[Country] OFF
+GO
+
+-- ----------------------------
+-- Table structure for Service
+-- ----------------------------
+DROP TABLE [dbo].[Service]
+GO
+CREATE TABLE [dbo].[Service] (
+[ServiceId] bigint NOT NULL IDENTITY(1,1) ,
+[ServiceName] varchar(300) NOT NULL ,
+[IsEnabled] bit NOT NULL DEFAULT ((1)) 
+)
+
+
+GO
+DBCC CHECKIDENT(N'[dbo].[Service]', RESEED, 9)
+GO
+
+-- ----------------------------
+-- Records of Service
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[Service] ON
+GO
+INSERT INTO [dbo].[Service] ([ServiceId], [ServiceName], [IsEnabled]) VALUES (N'1', N'Transporte de objetos pesados', N'1')
+GO
+GO
+INSERT INTO [dbo].[Service] ([ServiceId], [ServiceName], [IsEnabled]) VALUES (N'2', N'Servicio de seguridad', N'1')
+GO
+GO
+INSERT INTO [dbo].[Service] ([ServiceId], [ServiceName], [IsEnabled]) VALUES (N'3', N'Empacadora', N'1')
+GO
+GO
+INSERT INTO [dbo].[Service] ([ServiceId], [ServiceName], [IsEnabled]) VALUES (N'4', N'Proveedor de hardware', N'1')
+GO
+GO
+INSERT INTO [dbo].[Service] ([ServiceId], [ServiceName], [IsEnabled]) VALUES (N'5', N'Venta de alimentos', N'1')
+GO
+GO
+INSERT INTO [dbo].[Service] ([ServiceId], [ServiceName], [IsEnabled]) VALUES (N'6', N'Desarrolladores in house', N'1')
+GO
+GO
+INSERT INTO [dbo].[Service] ([ServiceId], [ServiceName], [IsEnabled]) VALUES (N'7', N'Licencias de software', N'1')
+GO
+GO
+INSERT INTO [dbo].[Service] ([ServiceId], [ServiceName], [IsEnabled]) VALUES (N'8', N'Manufacturación de electrodomésticos', N'1')
+GO
+GO
+INSERT INTO [dbo].[Service] ([ServiceId], [ServiceName], [IsEnabled]) VALUES (N'9', N'Producción de textiles', N'1')
+GO
+GO
+SET IDENTITY_INSERT [dbo].[Service] OFF
+GO
+
+-- ----------------------------
+-- Table structure for sysdiagrams
+-- ----------------------------
+DROP TABLE [dbo].[sysdiagrams]
+GO
+CREATE TABLE [dbo].[sysdiagrams] (
+[name] sysname NOT NULL ,
+[principal_id] int NOT NULL ,
+[diagram_id] int NOT NULL IDENTITY(1,1) ,
+[version] int NULL ,
+[definition] varbinary(MAX) NULL 
+)
+
+
+GO
+
+-- ----------------------------
+-- Records of sysdiagrams
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[sysdiagrams] ON
+GO
+INSERT INTO [dbo].[sysdiagrams] ([name], [principal_id], [diagram_id], [version], [definition]) VALUES (N'Diagram_1', N'1', N'1', N'1', 0xD0CF11E0A1B11AE1000000000000000000000000000000003E000300FEFF0900060000000000000000000000010000000100000000000000001000000200000001000000FEFFFFFF0000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFFFFFF0F000000FEFFFFFF0400000005000000100000000700000008000000090000000A0000000B0000000C0000000D0000000E000000FEFFFFFFFEFFFFFF1100000012000000130000001400000015000000160000001700000018000000FEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF52006F006F007400200045006E00740072007900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016000500FFFFFFFFFFFFFFFF020000000000000000000000000000000000000000000000000000000000000090845107F689D4010300000000170000000000006600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004000201FFFFFFFFFFFFFFFFFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000D2040000000000006F000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000040002010100000004000000FFFFFFFF000000000000000000000000000000000000000000000000000000000000000000000000060000005E10000000000000010043006F006D0070004F0062006A0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000012000201FFFFFFFFFFFFFFFFFFFFFFFF000000000000000000000000000000000000000000000000000000000000000000000000140000005F000000000000000100000002000000030000000400000005000000060000000700000008000000090000000A0000000B0000000C0000000D0000000E0000000F00000010000000110000001200000013000000FEFFFFFF15000000FEFFFFFF1700000018000000190000001A0000001B0000001C0000001D0000001E0000001F000000200000002100000022000000230000002400000025000000260000002700000028000000290000002A0000002B0000002C0000002D0000002E0000002F000000300000003100000032000000330000003400000035000000360000003700000038000000390000003A0000003B0000003C0000003D0000003E0000003F000000400000004100000042000000430000004400000045000000460000004700000048000000490000004A0000004B000000FEFFFFFFFEFFFFFF4E0000004F000000500000005100000052000000530000005400000055000000560000005700000058000000590000005A000000FEFFFFFFFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000428000A0E100C050000800F0000000F00FFFF0F000000007D00007B7100001B4700004183000007660000DE805B10F195D011B0A000AA00BDCB5C000008003000000000020000030000003C006B0000000900000000000000D9E6B0E91C81D011AD5100A0C90F5739F43B7F847F61C74385352986E1D552F8A0327DB2D86295428D98273C25A2DA2D00002800430000000000000053444DD2011FD1118E63006097D2DF4834C9D2777977D811907000065B840D9C00002800430000000000000051444DD2011FD1118E63006097D2DF4834C9D2777977D811907000065B840D9C0D000000E8030000008D010000003000A509000007000080010000009E02000000800000060000805363684772696400D20F0000B42D0000436C69656E74640000003800A50900000700008002000000AC020000008000000D0000805363684772696400D20F0000AE150000436C69656E745365727669636509000000007800A5090000070000800300000052000000018000004D000080436F6E74726F6CC05D1900008621000052656C6174696F6E736869702027464B5F436C69656E7449645F436C69656E745365727669636527206265747765656E2027436C69656E742720616E642027436C69656E74536572766963652700000000002800B50100000700008004000000310000006500000002800000436F6E74726F6C00A31B0000DC27000000003C00A50900000700008007000000BA020000008000001400008053636847726964C00000000000000000436C69656E7453657276696365436F756E74727900009400A50900000700008008000000620000000180000069000080436F6E74726F6C00A70900005D09000052656C6174696F6E736869702027464B5F436C69656E745365727669636549645F436C69656E7453657276696365436F756E74727927206265747765656E2027436C69656E74536572766963652720616E642027436C69656E7453657276696365436F756E7472792700000000002800B50100000700008009000000310000008100000002800000436F6E74726F6C0040FDFFFF8E0E000000003000A5090000070000800A000000A002000000800000070000805363684772696400A41F00002C010000436F756E7472790000008800A5090000070000800B00000052000000018000005D000080436F6E74726F6C005C1500004504000052656C6174696F6E736869702027464B5F436F756E74727949645F436C69656E7453657276696365436F756E74727927206265747765656E2027436F756E7472792720616E642027436C69656E7453657276696365436F756E7472792705000000002800B5010000070000800C000000310000007500000002800000436F6E74726F6C00211100008B06000000003000A5090000070000800D000000A0020000008000000700008053636847726964000C300000DA160000536572766963650000007800A5090000070000800E00000052000000018000004F000080436F6E74726F6C002E2500001F1B000052656C6174696F6E736869702027464B5F5365727669636549645F436C69656E745365727669636527206265747765656E2027536572766963652720616E642027436C69656E7453657276696365270000002800B5010000070000800F000000310000006700000002800000436F6E74726F6C0059240000AF1A0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100FEFF030A0000FFFFFFFF00000000000000000000000000000000170000004D6963726F736F66742044445320466F726D20322E300010000000456D626564646564204F626A6563740000000000F439B2710000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000C00000000000000000000000100260000007300630068005F006C006100620065006C0073005F00760069007300690062006C0065000000010000000B0000001E00000000000000000000000000000000000000640000000000000000000000000000000000000000000000000001000000010000000000000000000000000021433412080000006E1300004311000078563412070000001401000043006C00690065006E00740000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000005000000540000002C0000002C0000002C0000003400000000000000000000002229000065150000000000002D010000070000000C000000070000001C0100000609000062070000480300001A040000DF020000EC04000027060000B103000027060000CB0700005505000000000000010000006E1300004311000000000000040000000400000002000000020000001C010000330900000000000001000000391300007A05000000000000010000000100000002000000020000001C010000060900000100000000000000391300003403000000000000000000000000000002000000020000001C010000060900000000000000000000D13100000923000000000000000000000D00000004000000040000001C01000006090000AA0A00009006000078563412040000005600000001000000010000000B000000000000000100000002000000030000000400000005000000060000000700000008000000090000000A00000004000000640062006F0000000700000043006C00690065006E0074000000214334120800000088160000930E000078563412070000001401000043006C00690065006E007400530065007200760069006300650000000000000000000000000000000000004000000000007078400000000000003340000000000000F03F00000000000000000000000001000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000F03F0000000000000000C4AB716F0000000000000000846C726F1C58726F983C3227983C32270200000002000000000000000000000078773C1500000000020000000000000000000040000000000000A841000098C10000004000000000000000000000000000000000000000000100000005000000540000002C0000002C0000002C0000003400000000000000000000002229000065150000000000002D010000070000000C000000070000001C0100000609000062070000480300001A040000DF020000EC04000027060000B103000027060000CB07000055050000000000000100000088160000930E000000000000040000000400000002000000020000001C010000F50A0000000000000100000039130000060A000000000000030000000300000002000000020000001C010000060900000100000000000000391300003403000000000000000000000000000002000000020000001C010000060900000000000000000000D13100000923000000000000000000000D00000004000000040000001C01000006090000AA0A00009006000078563412040000006400000001000000010000000B000000000000000100000002000000030000000400000005000000060000000700000008000000090000000A00000004000000640062006F0000000E00000043006C00690065006E0074005300650072007600690063006500000002000B00F41A0000B42D0000F41A0000412400000000000002000000F0F0F00000000000000000000000000000000000010000000400000000000000A31B0000DC270000DA0D00005801000038000000010000020000DA0D000058010000020000000000050000800800008001000000150001000000900144420100065461686F6D61190046004B005F0043006C00690065006E007400490064005F0043006C00690065006E0074005300650072007600690063006500214334120800000088160000180C000078563412070000001401000043006C00690065006E007400530065007200760069006300650043006F0075006E0074007200790000000000000000000000000000F00F000480000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000005000000540000002C0000002C0000002C0000003400000000000000000000002229000065150000000000002D010000070000000C000000070000001C0100000609000062070000480300001A040000DF020000EC04000027060000B103000027060000CB07000055050000000000000100000088160000180C000000000000030000000300000002000000020000001C010000F50A0000000000000100000039130000060A000000000000030000000300000002000000020000001C010000060900000100000000000000391300003403000000000000000000000000000002000000020000001C010000060900000000000000000000D13100000923000000000000000000000D00000004000000040000001C01000006090000AA0A00009006000078563412040000007200000001000000010000000B000000000000000100000002000000030000000400000005000000060000000700000008000000090000000A00000004000000640062006F0000001500000043006C00690065006E007400530065007200760069006300650043006F0075006E00740072007900000004000B00F41A0000AE150000F41A0000DF0D0000220B0000DF0D0000220B0000180C00000000000002000000F0F0F0000000000000000000000000000000000001000000090000000000000040FDFFFF8E0E000031160000580100003A0000000100000200003116000058010000020000000000050000800800008001000000150001000000900144420100065461686F6D61270046004B005F0043006C00690065006E0074005300650072007600690063006500490064005F0043006C00690065006E007400530065007200760069006300650043006F0075006E007400720079002143341208000000881600009D09000078563412070000001401000043006F0075006E0074007200790000002C002000760065007200730069006F006E003D00310033002E0030002E0030002E00300000002000630075006C0074007500720065003D006E00650075007400720061006C002C0020007000750062006C00690063006B006500790074006F006B0065006E003D0038003900380034003500640063006400380030003800300063006300390031000000660039003500380036006200610063003200640035003300310065006100620063003300610063006300360036003600630032006600380065006300380037003900660061003900340066003800660037006200000000000000000000000100000005000000540000002C0000002C0000002C0000003400000000000000000000002229000065150000000000002D010000070000000C000000070000001C0100000609000062070000480300001A040000DF020000EC04000027060000B103000027060000CB070000550500000000000001000000881600009D09000000000000020000000200000002000000020000001C010000F50A00000000000001000000391300007A05000000000000010000000100000002000000020000001C010000060900000100000000000000391300003403000000000000000000000000000002000000020000001C010000060900000000000000000000D13100000923000000000000000000000D00000004000000040000001C01000006090000AA0A00009006000078563412040000005800000001000000010000000B000000000000000100000002000000030000000400000005000000060000000700000008000000090000000A00000004000000640062006F0000000800000043006F0075006E00740072007900000002000B00A41F0000DC05000088160000DC0500000000000002000000F0F0F00000000000000000000000000000000000010000000C00000000000000211100008B0600009A13000058010000310000000100000200009A13000058010000020000000000FFFFFF000800008001000000150001000000900144420100065461686F6D61210046004B005F0043006F0075006E00740072007900490064005F0043006C00690065006E007400530065007200760069006300650043006F0075006E00740072007900214334120800000088160000180C00007856341207000000140100005300650072007600690063006500000080C16227E4423227000000000000000000000000000000000000004000000000006070400000000000003340000000000000F03F00000000000000000000000001000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000F03F0000000000000000C4AB716F0000000000000000846C726F1C58726F00433227004332270200000002000000000000000000000078803C1500000000020000000000000000000040000000000000A841000098C10000004000000000000000000000000000000000000000000100000005000000540000002C0000002C0000002C0000003400000000000000000000002229000065150000000000002D010000070000000C000000070000001C0100000609000062070000480300001A040000DF020000EC04000027060000B103000027060000CB07000055050000000000000100000088160000180C000000000000030000000300000002000000020000001C010000F50A00000000000001000000391300007A05000000000000010000000100000002000000020000001C010000060900000100000000000000391300003403000000000000000000000000000002000000020000001C010000060900000000000000000000D13100000923000000000000000000000D00000004000000040000001C01000006090000AA0A00009006000078563412040000005800000001000000010000000B000000000000000100000002000000030000000400000005000000060000000700000008000000090000000A00000004000000640062006F000000080000005300650072007600690063006500000002000B000C300000B61C00005A260000B61C00000000000002000000F0F0F00000000000000000000000000000000000010000000F0000000000000059240000AF1A0000C10E0000580100003C000000010000020000C10E000058010000020000000000FFFFFF000800008001000000150001000000900144420100065461686F6D611A0046004B005F005300650072007600690063006500490064005F0043006C00690065006E0074005300650072007600690063006500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000300440064007300530074007200650061006D000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000160002000300000006000000FFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000016000000640D00000000000053006300680065006D00610020005500440056002000440065006600610075006C0074000000000000000000000000000000000000000000000000000000000026000200FFFFFFFFFFFFFFFFFFFFFFFF0000000000000000000000000000000000000000000000000000000000000000000000004C0000001600000000000000440053005200450046002D0053004300480045004D0041002D0043004F004E00540045004E0054005300000000000000000000000000000000000000000000002C0002010500000007000000FFFFFFFF0000000000000000000000000000000000000000000000000000000000000000000000004D0000005A0300000000000053006300680065006D00610020005500440056002000440065006600610075006C007400200050006F007300740020005600360000000000000000000000000036000200FFFFFFFFFFFFFFFFFFFFFFFF0000000000000000000000000000000000000000000000000000000000000000000000005B0000001200000000000000000000000000D00200000600280000004100630074006900760065005400610062006C00650056006900650077004D006F006400650000000100000008000400000031000000200000005400610062006C00650056006900650077004D006F00640065003A00300000000100000008003A00000034002C0030002C003200380034002C0030002C0032003300310030002C0031002C0031003800390030002C0035002C0031003200360030000000200000005400610062006C00650056006900650077004D006F00640065003A00310000000100000008001E00000032002C0030002C003200380034002C0030002C0032003300350035000000200000005400610062006C00650056006900650077004D006F00640065003A00320000000100000008001E00000032002C0030002C003200380034002C0030002C0032003300310030000000200000005400610062006C00650056006900650077004D006F00640065003A00330000000100000008001E00000032002C0030002C003200380034002C0030002C0032003300310030000000200000005400610062006C00650056006900650077004D006F00640065003A00340000000100000008003E00000034002C0030002C003200380034002C0030002C0032003300310030002C00310032002C0032003700330030002C00310031002C0031003600380030000000020000000200000000000000000000000000000000000000D00200000600280000004100630074006900760065005400610062006C00650056006900650077004D006F006400650000000100000008000400000031000000200000005400610062006C00650056006900650077004D006F00640065003A00300000000100000008003A00000034002C0030002C003200380034002C0030002C0032003300310030002C0031002C0031003800390030002C0035002C0031003200360030000000200000005400610062006C00650056006900650077004D006F00640065003A00310000000100000008001E00000032002C0030002C003200380034002C0030002C0032003800300035000000200000005400610062006C00650056006900650077004D006F00640065003A00320000000100000008001E00000032002C0030002C003200380034002C0030002C0032003300310030000000200000005400610062006C00650056006900650077004D006F00640065003A00330000000100000008001E00000032002C0030002C003200380034002C0030002C0032003300310030000000200000005400610062006C00650056006900650077004D006F00640065003A00340000000100000008003E00000034002C0030002C003200380034002C0030002C0032003300310030002C00310032002C0032003700330030002C00310031002C00310036003800300000000300000003000000000000004400000001003A0001000000640062006F00000046004B005F0043006C00690065006E007400490064005F0043006C00690065006E007400530065007200760069006300650000000000000000000000C402000000000400000004000000030000000800000001D2F51380D2F5130000000000000000AD070000000000070000000700000000000000000000000000000000000000D00200000600280000004100630074006900760065005400610062006C00650056006900650077004D006F006400650000000100000008000400000031000000200000005400610062006C00650056006900650077004D006F00640065003A00300000000100000008003A00000034002C0030002C003200380034002C0030002C0032003300310030002C0031002C0031003800390030002C0035002C0031003200360030000000200000005400610062006C00650056006900650077004D006F00640065003A00310000000100000008001E00000032002C0030002C003200380034002C0030002C0032003800300035000000200000005400610062006C00650056006900650077004D006F00640065003A00320000000100000008001E00000032002C0030002C003200380034002C0030002C0032003300310030000000200000005400610062006C00650056006900650077004D006F00640065003A00330000000100000008001E00000032002C0030002C003200380034002C0030002C0032003300310030000000200000005400610062006C00650056006900650077004D006F00640065003A00340000000100000008003E00000034002C0030002C003200380034002C0030002C0032003300310030002C00310032002C0032003700330030002C00310031002C00310036003800300000000800000008000000000000006000000001ABAA6F01000000640062006F00000046004B005F0043006C00690065006E0074005300650072007600690063006500490064005F0043006C00690065006E007400530065007200760069006300650043006F0075006E0074007200790000000000000000000000C402000000000900000009000000080000000800000001D1F513C0D1F5130000000000000000AD0700000000000A0000000A00000000000000000000000000000000000000D00200000600280000004100630074006900760065005400610062006C00650056006900650077004D006F006400650000000100000008000400000031000000200000005400610062006C00650056006900650077004D006F00640065003A00300000000100000008003A00000034002C0030002C003200380034002C0030002C0032003300310030002C0031002C0031003800390030002C0035002C0031003200360030000000200000005400610062006C00650056006900650077004D006F00640065003A00310000000100000008001E00000032002C0030002C003200380034002C0030002C0032003800300035000000200000005400610062006C00650056006900650077004D006F00640065003A00320000000100000008001E00000032002C0030002C003200380034002C0030002C0032003300310030000000200000005400610062006C00650056006900650077004D006F00640065003A00330000000100000008001E00000032002C0030002C003200380034002C0030002C0032003300310030000000200000005400610062006C00650056006900650077004D006F00640065003A00340000000100000008003E00000034002C0030002C003200380034002C0030002C0032003300310030002C00310032002C0032003700330030002C00310031002C00310036003800300000000B0000000B00000000000000540000000100610001000000640062006F00000046004B005F0043006F0075006E00740072007900490064005F0043006C00690065006E007400530065007200760069006300650043006F0075006E0074007200790000000000000000000000C402000000000C0000000C0000000B0000000800000001D1F51300D1F5130000000000000000AD0700000000000D0000000D00000000000000000000000000000000000000D00200000600280000004100630074006900760065005400610062006C00650056006900650077004D006F006400650000000100000008000400000031000000200000005400610062006C00650056006900650077004D006F00640065003A00300000000100000008003A00000034002C0030002C003200380034002C0030002C0032003300310030002C0031002C0031003800390030002C0035002C0031003200360030000000200000005400610062006C00650056006900650077004D006F00640065003A00310000000100000008001E00000032002C0030002C003200380034002C0030002C0032003800300035000000200000005400610062006C00650056006900650077004D006F00640065003A00320000000100000008001E00000032002C0030002C003200380034002C0030002C0032003300310030000000200000005400610062006C00650056006900650077004D006F00640065003A00330000000100000008001E00000032002C0030002C003200380034002C0030002C0032003300310030000000200000005400610062006C00650056006900650077004D006F00640065003A00340000000100000008003E00000034002C0030002C003200380034002C0030002C0032003300310030002C00310032002C0032003700330030002C00310031002C00310036003800300000000E0000000E00000000000000460000000100000001000000640062006F00000046004B005F005300650072007600690063006500490064005F0043006C00690065006E007400530065007200760069006300650000000000000000000000C402000000000F0000000F0000000E0000000800000001D0F513C0D0F5130000000000000000AD07000000000014000000030000000100000002000000240000002500000008000000020000000700000024000000250000000B0000000A00000007000000580000005D0000000E0000000D000000020000005C0000006100000000000000000000000000000000000000000000000000000000000000010003000000000000000C0000000B0000004E61BC00000000000000000000000000000000000000000000000000000000000000000000000000000000000000DBE6B0E91C81D011AD5100A0C90F573900000200602D4C07F689D401020200001048450000000000000000000000000000000000C60100004400610074006100200053006F0075007200630065003D004400450053004B0054004F0050002D004C003800360054004100370033005C00530051004C0045005800500052004500530053003B0049006E0069007400690061006C00200043006100740061006C006F0067003D00500072007500650062006100540065006B00750073003B0049006E00740065006700720061007400650064002000530065006300750072006900740079003D0054007200750065003B004D0075006C007400690070006C00650041006300740069007600650052006500730075006C00740053006500740073003D00460061006C00730065003B0054007200750073007400530065007200760065007200430065007200740069006600690063006100740065003D00460061006C00730065003B005000610063006B00650074002000530069007A0065003D0034003000390036003B004100700070006C00690063006100740069006F006E0020004E0061006D0065003D0022004D006900630072006F0073006F00660074002000530051004C00200053006500720076006500720020004D0061006E006100670065006D0065006E0074002000530074007500640069006F002200000000800500140000004400690061006700720061006D005F003100000000022600100000005300650072007600690063006500000008000000640062006F000000000226001000000043006F0075006E00740072007900000008000000640062006F000000000226002A00000043006C00690065006E007400530065007200760069006300650043006F0075006E00740072007900000008000000640062006F000000000226001C00000043006C00690065006E0074005300650072007600690063006500000008000000640062006F000000000224000E00000043006C00690065006E007400000008000000640062006F00000001000000D68509B3BB6BF2459AB8371664F0327008004E0000007B00310036003300340043004400440037002D0030003800380038002D0034003200450033002D0039004600410032002D004200360044003300320035003600330042003900310044007D0000000000000000000000000000000000000000000000000000000000000000000000000000000000010003000000000000000C0000000B000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000062885214)
+GO
+GO
+SET IDENTITY_INSERT [dbo].[sysdiagrams] OFF
+GO
+
+-- ----------------------------
+-- Table structure for Version
+-- ----------------------------
+DROP TABLE [dbo].[Version]
+GO
+CREATE TABLE [dbo].[Version] (
+[VersionId] int NOT NULL ,
+[Number] int NOT NULL 
+)
+
+
+GO
+
+-- ----------------------------
+-- Records of Version
+-- ----------------------------
+
+-- ----------------------------
+-- Indexes structure for table Client
+-- ----------------------------
+
+-- ----------------------------
+-- Primary Key structure for table Client
+-- ----------------------------
+ALTER TABLE [dbo].[Client] ADD PRIMARY KEY ([ClientId])
+GO
+
+-- ----------------------------
+-- Indexes structure for table ClientService
+-- ----------------------------
+
+-- ----------------------------
+-- Primary Key structure for table ClientService
+-- ----------------------------
+ALTER TABLE [dbo].[ClientService] ADD PRIMARY KEY ([ClientServiceId])
+GO
+
+-- ----------------------------
+-- Indexes structure for table ClientServiceCountry
+-- ----------------------------
+
+-- ----------------------------
+-- Primary Key structure for table ClientServiceCountry
+-- ----------------------------
+ALTER TABLE [dbo].[ClientServiceCountry] ADD PRIMARY KEY ([ClientServiceCountryId])
+GO
+
+-- ----------------------------
+-- Indexes structure for table Country
+-- ----------------------------
+
+-- ----------------------------
+-- Primary Key structure for table Country
+-- ----------------------------
+ALTER TABLE [dbo].[Country] ADD PRIMARY KEY ([CountryId])
+GO
+
+-- ----------------------------
+-- Indexes structure for table Service
+-- ----------------------------
+
+-- ----------------------------
+-- Primary Key structure for table Service
+-- ----------------------------
+ALTER TABLE [dbo].[Service] ADD PRIMARY KEY ([ServiceId])
+GO
+
+-- ----------------------------
+-- Indexes structure for table sysdiagrams
+-- ----------------------------
+
+-- ----------------------------
+-- Primary Key structure for table sysdiagrams
+-- ----------------------------
+ALTER TABLE [dbo].[sysdiagrams] ADD PRIMARY KEY ([diagram_id])
+GO
+
+-- ----------------------------
+-- Uniques structure for table sysdiagrams
+-- ----------------------------
+ALTER TABLE [dbo].[sysdiagrams] ADD UNIQUE ([principal_id] ASC, [name] ASC)
+GO
+
+-- ----------------------------
+-- Indexes structure for table Version
+-- ----------------------------
+
+-- ----------------------------
+-- Primary Key structure for table Version
+-- ----------------------------
+ALTER TABLE [dbo].[Version] ADD PRIMARY KEY ([VersionId])
+GO
+
+-- ----------------------------
+-- Foreign Key structure for table [dbo].[ClientService]
+-- ----------------------------
+ALTER TABLE [dbo].[ClientService] ADD FOREIGN KEY ([ClientId]) REFERENCES [dbo].[Client] ([ClientId]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[ClientService] ADD FOREIGN KEY ([ServiceId]) REFERENCES [dbo].[Service] ([ServiceId]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+
+-- ----------------------------
+-- Foreign Key structure for table [dbo].[ClientServiceCountry]
+-- ----------------------------
+ALTER TABLE [dbo].[ClientServiceCountry] ADD FOREIGN KEY ([ClientServiceId]) REFERENCES [dbo].[ClientService] ([ClientServiceId]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[ClientServiceCountry] ADD FOREIGN KEY ([CountryId]) REFERENCES [dbo].[Country] ([CountryId]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
