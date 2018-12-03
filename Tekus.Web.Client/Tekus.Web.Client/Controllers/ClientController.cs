@@ -27,5 +27,11 @@ namespace Tekus.Web.Client.Controllers
             ViewBag.endpoint = ConfigurationManager.AppSettings["endpoint"];
             return View();
         }
+
+        public ActionResult AddClientServices(long id)
+        {
+            ViewBag.endpoint = ConfigurationManager.AppSettings["endpoint"];
+            return View(id);
+        }
     }
 }

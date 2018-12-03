@@ -33,7 +33,8 @@ namespace Tekus.Web.Client
 
             bundles.Add(new StyleBundle("~/bundles/custom").Include(
                       "~/Scripts/global.js",
-                      "~/Scripts/clientViews.js"));
+                      "~/Scripts/clientViews.js",
+                      "~/Scripts/serviceViews.js"));
         }
     }
 }

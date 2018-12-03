@@ -21,6 +21,7 @@ namespace Tekus.Domain.Models
 
             var model = new ServiceModel
             {
+                Id = entity.Id,
                 Name = entity.Name,
                 IsEnable = entity.IsEnabled
             };

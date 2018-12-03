@@ -130,6 +130,7 @@
     </Compile>
     <Compile Include="Models\ClientRequest.cs" />
     <Compile Include="Models\ClientResponse.cs" />
+    <Compile Include="Models\ClientServiceRequest.cs" />
     <Compile Include="Models\ClientServiceResponse.cs" />
     <Compile Include="Models\CountryResponse.cs" />
     <Compile Include="Models\ServiceRequest.cs" />

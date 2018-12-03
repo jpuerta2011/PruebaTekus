@@ -54,7 +54,7 @@ namespace Tekus.Web.API.Controllers
             var response = await Services.ServiceService.Save(new Domain.Models.ServiceModel
             {
                 Id = service.Id,
-                IsEnable = service.IsEnabled,
+                IsEnable = true,
                 Name = service.Name
             });
 

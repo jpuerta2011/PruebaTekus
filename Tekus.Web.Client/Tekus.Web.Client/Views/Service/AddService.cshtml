@@ -11,9 +11,9 @@
 @section scripts{
     <script type="text/javascript">
         $(document).ready(function () {
-            clientViews.endpoint = "@ViewBag.endpoint"
+            serviceViews.endpoint = "@ViewBag.endpoint"
             $("#btnGuardar").on("click", function () {
-                clientViews.saveClient();
+                serviceViews.saveService();
                 return false;
             });
 

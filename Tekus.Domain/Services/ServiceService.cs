@@ -17,7 +17,7 @@ namespace Tekus.Domain.Services
         Task<List<ServiceModel>> GetEnabledServices();
         Task<ResponseModel<long>> Save(ServiceModel serviceModel);
         Task<ResponseModel<bool>> SetEnabledState(long serviceId);
-        Task<ServiceModel> GetService(long serviceId)
+        Task<ServiceModel> GetService(long serviceId);
     }
     public class ServiceService : IServiceService
     {

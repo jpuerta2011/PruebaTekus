@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Agregar servicios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("", "", FormMethod.Post,
+    new { @class = "form-horizontal", role = "form", id = "formSaveClientService" }))
+{
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+                @Html.Label("Cliente")
+                @Html.TextBox("Client", string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+                @Html.Label("Servicios", new { @for = "Service" })
+                @Html.DropDownList("Service", new List<SelectListItem>(), "Seleccione el servicio", new { @class = "form-control", required = "required" })
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+                @Html.Label("Valor hora", new { @for = "HourValue" })
+                @Html.TextBox("HourValue", string.Empty, new { @class = "form-control", type = "number", required = "required" })
+            </div>
+        </div>
+    </div>
+    <hr />
+    <h4>Paises donde se ofrece el servicio</h4>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+                @Html.Label("Pais", new { @for = "Country" })
+                @Html.DropDownList("Country", new List<SelectListItem>(), "Seleccione el pais", new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+                <button id="btnAgregarPais" class="btn btn-default">Agregar pais</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+                <table id="clientServices" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Pais</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+                <button id="btnGuardar" class="btn btn-success">Guardar</button>
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            clientViews.clientID = "@Model";
+            clientViews.endpoint = "@ViewBag.endpoint";
+            clientViews.initAddClientService();
+        });
+    </script>
+}

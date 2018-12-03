@@ -211,6 +211,7 @@
     <Content Include="Views\Service\_ServiceListPartial.cshtml" />
     <Content Include="Views\Service\AddService.cshtml" />
     <Content Include="Views\Service\EditService.cshtml" />
+    <Content Include="Views\Client\AddClientServices.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
